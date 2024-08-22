@@ -10,83 +10,73 @@
 	gap: 20px;
 	padding-top: 100px;
 	padding-bottom: 200px;
-  }
-  
-  .containerProjectsPage h2 {
+}
+
+.containerProjectsPage h2 {
 	color: #DFDFDF;
 	font-size: 40px;
 	letter-spacing: 0.1em;
-  }
-  
-  .containerProjectsPage p {
+}
+
+.containerProjectsPage p {
 	color: #DFDFDF;
 	letter-spacing: 0.05em;
 	font-size: 18px;
 	line-height: 25px;
-  }
-  
-  .containerProjectCards {
+}
+
+.containerProjectCards {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	overflow-x: auto; /* Permette lo scroll orizzontale */
-  }
-  
-  .projectsGrid {
+}
+
+.projectsGrid {
 	display: flex;
-	gap: 20px;
-	justify-content: flex-start;
-	flex-wrap: nowrap; /* Impedisce il wrapping degli elementi su mobile */
-	overflow-x: auto; /* Abilita lo scroll orizzontale */
-	scroll-snap-type: x mandatory; /* Opzionale: scroll fluido a scatti */
-	-webkit-overflow-scrolling: touch; /* Migliora lo scroll su dispositivi iOS */
-  }
-  
-  .projectCard {
-	flex: 0 0 auto; /* Assicura che le card non si ridimensionino */
-	min-width: 80%; /* Dimensione delle card su mobile */
-	margin-right: 10px; /* Spaziatura tra gli elementi */
-  }
-  
-  @media (min-width: 768px) {
-	.projectsGrid {
-	  flex-wrap: wrap; /* Ripristina il wrapping su schermi più grandi */
-	  justify-content: space-around;
-	  overflow-x: visible; /* Disabilita lo scroll orizzontale su desktop */
-	}
-  
+	width: 100%;
+	gap: 40px;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.projectCard {
+	flex: 1 1 calc(100% - 20px);
+	margin: 10px;
+	max-width: 300px;
+}
+
+@media (min-width: 768px) {
 	.projectCard {
-	  flex: 1 1 calc(33.333% - 20px); /* Layout responsive per desktop */
-	  min-width: auto; /* Rimuove la larghezza minima su desktop */
+		flex: 1 1 calc(33.333% - 20px);
 	}
-  }
-  
-  .dotsContainer {
+}
+
+.dotsContainer {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	margin-top: 20px;
 	flex-wrap: wrap;
-  }
-  
-  .dot {
-	width: 10px;
-	height: 10px;
+	gap: 10px;
+}
+
+.dot {
+	width: 16px;
+	height: 16px;
 	background-color: #DFDFDF;
 	border-radius: 50%;
 	margin: 0 5px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
-  }
-  
-  .activeDot {
+}
+
+.activeDot {
 	background-color: #ff00ff;
-  }
-  
-  @media (min-width: 768px) {
+}
+
+@media (min-width: 768px) {
 	.dotsContainer {
-	  display: none; /* Nasconde i pallini di navigazione su desktop */
+		display: none;
 	}
-  }
-  
+}

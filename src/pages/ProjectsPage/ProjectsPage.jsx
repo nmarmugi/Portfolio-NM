@@ -1,5 +1,5 @@
-import ProjectCard from '../../components/ProjectCard/ProjectCard';
-import styles from './projectsPage.module.css';
+import ProjectCard from '../../components/ProjectCard/ProjectCard'
+import styles from './projectsPage.module.css'
 import { useState, useEffect } from 'react';
 
 const arrayLinks = [
@@ -39,13 +39,13 @@ export default function ProjectsPage() {
   };
 
   useEffect(() => {
-    if (!isMobile && isAutoScrolling) {
+    if (isAutoScrolling) {
       const interval = setInterval(() => {
         nextProject();
       }, 3000);
       return () => clearInterval(interval);
     }
-  }, [isAutoScrolling, isMobile]);
+  }, [isAutoScrolling]);
 
   const handleDotClick = (index) => {
     setIsAutoScrolling(false);
@@ -73,7 +73,7 @@ export default function ProjectsPage() {
               idNavigate={arrayLinks[currentProjectIndex].url}
             />
           ) : (
-            arrayLinks.map((project) => (
+            arrayLinks.map((project, index) => (
               <ProjectCard
                 key={project.url}
                 urlImg={project.img}
@@ -85,17 +85,15 @@ export default function ProjectsPage() {
         </div>
       </div>
 
-      {isMobile && (
-        <div className={styles.dotsContainer}>
-          {arrayLinks.map((_, index) => (
-            <span
-              key={index}
-              className={`${styles.dot} ${index === currentProjectIndex ? styles.activeDot : ''}`}
-              onClick={() => handleDotClick(index)}
-            />
-          ))}
-        </div>
-      )}
+      <div className={styles.dotsContainer}>
+        {arrayLinks.map((_, index) => (
+          <span
+            key={index}
+            className={`${styles.dot} ${index === currentProjectIndex ? styles.activeDot : ''}`}
+            onClick={() => handleDotClick(index)}
+          />
+        ))}
+      </div>
     </div>
   );
 }
